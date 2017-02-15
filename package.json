@@ -26,5 +26,8 @@
   "devDependencies": {
     "vue": "^1.0.16",
     "webpack": "^1.12.12"
+  },
+  "dependencies": {
+    "vue-online": "^1.1.9"
   }
 }

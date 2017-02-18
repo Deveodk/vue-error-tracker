@@ -28,6 +28,7 @@
     "webpack": "^1.12.12"
   },
   "dependencies": {
-    "vue-online": "^1.1.9"
+    "vue-online": "^1.1.9",
+    "vue-sweetalert": "^0.1.16"
   }
 }

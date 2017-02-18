@@ -1,12 +1,10 @@
 var utilitys = require('./lib/utils.js');
 import {VueOnline} from 'vue-online';
-import VueSweetAlert from 'vue-sweetalert';
 
 const VueErrorTracker = {
 
 
     install: (Vue, options) => {
-        Vue.use(VueSweetAlert);
         const checkVueResource = Vue.http;
 
 
@@ -90,10 +88,7 @@ const VueErrorTracker = {
         function alertFunction(message) {
 
             if (showMessage) {
-                this.$swal(
-                    message,
-                    'question'
-                )
+              alert(message)
             }
             showMessage = false;
 

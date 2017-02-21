@@ -1,10 +1,10 @@
 var utilitys = require('./lib/utils.js');
-import {VueOnline} from 'vue-online';
+const VueOnline = require('vue-online/src/VueOnline.js')
 
-const VueErrorTracker = {
+var component = require('./components/errorbox.vue');
+module.exports = (function () {
 
-
-    install: (Vue, options) => {
+    return function install(Vue, options) {
         const checkVueResource = Vue.http;
 
 
@@ -22,13 +22,15 @@ const VueErrorTracker = {
 //Set the default options
 
         var defaultOptions = {
+            AlertHeader: 'Whoops, something went wrong!',
+            ErrorCode: 'Error code:',
             OfflineMessage: 'You are offline',
             MessageTimeout: 5000,
-            Timeout: 'We are experiencing high loads, and therfore we failed to load the resource',
-            ServerError: 'Something went wrong, please contact the system admin if the problem persist.',
+            Timeout: 'We are experiencing high loads, and therefore we failed to load the resource.',
+            ServerError: 'Something went wrong, please contact the system admin if the problem persists.',
             BadGateway: 'You have found a bug, please contact the system admin.',
-            BadRequest: 'There have been a error, please try to reload the site and try again.',
-            NotFound: 'You have found a bug, please contact the system admin.',
+            BadRequest: 'There have been a error. Please reload the site and try again.',
+            NotFound: 'The page was not found. Please contact the system admin.',
 
         }
 
@@ -39,7 +41,7 @@ const VueErrorTracker = {
         Vue.http.interceptors.push(function (request, next) {
 
             if(!VueOnline.isOnline){
-                alertFunction(OfflineMessage);
+                alertFunction(options.OfflineMessage, "offline");
                 return false;
             }
 
@@ -60,22 +62,22 @@ const VueErrorTracker = {
                     case 404:
                         ErrorCount = ErrorCount + 1;
                         FatalErrorCount = FatalErrorCount + 1;
-                        alertFunction(options.NotFound)
+                        alertFunction(options.NotFound,response.status)
                         break;
                     case 500:
                         ErrorCount = ErrorCount + 1;
                         FatalErrorCount = FatalErrorCount + 1;
-                        alertFunction(options.ServerError)
+                        alertFunction(options.ServerError,response.status)
                         break;
                     case 502:
                         ErrorCount = ErrorCount + 1;
                         FatalErrorCount = FatalErrorCount + 1;
-                        alertFunction(options.BadGateway)
+                        alertFunction(options.BadGateway,response.status)
                         break;
                     case 504:
                         ErrorCount = ErrorCount + 1;
                         FatalErrorCount = FatalErrorCount + 1;
-                        alertFunction(options.Timeout)
+                        alertFunction(options.Timeout,response.status)
                         break;
                     default:
 
@@ -85,10 +87,19 @@ const VueErrorTracker = {
         });
 
 
-        function alertFunction(message) {
+        function alertFunction(message,codeStatus) {
 
             if (showMessage) {
-              alert(message)
+                var Comp = Vue.extend(component);
+                var vm = new Comp({
+                    data: {
+                        header: options.AlertHeader,
+                        message: message,
+                        code: options.ErrorCode,
+                        status: codeStatus
+                    }
+                }).$mount();
+                vm.$appendTo('body')
             }
             showMessage = false;
 
@@ -102,8 +113,5 @@ const VueErrorTracker = {
     }
 
 
-}
 
-if (typeof module === 'object' && module.exports) {
-    module.exports = VueErrorTracker;
-}
+})();

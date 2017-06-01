@@ -1,5 +1,8 @@
 # @deveodk/vue-error-tracker
 
+
+<img src="https://cloud.githubusercontent.com/assets/7561792/26696798/329afeb2-4710-11e7-8df0-43ad803237b7.png" width="100%" />
+
 [![npm](https://img.shields.io/npm/v/@deveodk/vue-error-tracker.svg)](https://www.npmjs.com/package/@deveodk/vue-error-tracker) [![vue2](https://img.shields.io/badge/vue-2.x-brightgreen.svg)](https://vuejs.org/)
 
 > Give your users an easy way to see when something in your application goes wrong. This package makes it easy to show error messages.
@@ -68,4 +71,4 @@ Vue.use(errorTracker, {
 
 [MIT](http://opensource.org/licenses/MIT)
 
-#### Made with <3 by Deveo
+<img src="https://cloud.githubusercontent.com/assets/7561792/26679305/bc4d7bda-46d4-11e7-9270-3f6cacdd0ae9.png" width="100%" />

@@ -16,27 +16,35 @@ function plugin (Vue, options) {
             if (!response) {
                 return
             }
-            const length = Object.keys(options.HttpErrorCodes).length
-            let temp
-            let object
-            for (let i = 0; i < length; i++) {
-                temp = Object.keys(options.HttpErrorCodes)[i]
-                object = options.HttpErrorCodes[temp]
-                if (response.status === parseInt(temp)) {
-                    if (notification) {
-                      switch (object.type) {
-                          case 'success':
+            trackErrors(response)
+        }, (error) => {
+            if (!error) {
+                return
+            }
+            trackErrors(error)
+        })
+    }
+    function trackErrors (response) {
+        const length = Object.keys(options.HttpErrorCodes).length
+        let temp
+        let object
+        for (let i = 0; i < length; i++) {
+            temp = Object.keys(options.HttpErrorCodes)[i]
+            object = options.HttpErrorCodes[temp]
+            if (response.status === parseInt(temp)) {
+                if (notification) {
+                    switch (object.type) {
+                        case 'success':
                             options.NotificationDriver._notifySuccess(Vue, object.message, object.title)
                             break
-                          case 'error':
+                        case 'error':
                             options.NotificationDriver._notifyError(Vue, object.message, object.title)
                             break
-                      }
                     }
-                    return
                 }
+                return
             }
-        })
+        }
     }
 }
 

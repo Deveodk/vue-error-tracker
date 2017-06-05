@@ -7,6 +7,11 @@
 
 > Give your users an easy way to see when something in your application goes wrong. This package makes it easy to show error messages.
 
+# Demo
+See a functioning demo
+<a href="https://packages.deveo.io/packages/vue/vue-error-tracker">deveo demo site</a>
+
+
 ## Installation
 
 ```bash
@@ -24,14 +29,8 @@ Vue.use(vueErrorTracker)
 ### Browser
 
 ```html
-<!-- Include after Vue -->
-<!-- Local files -->
-<link rel="stylesheet" href="@deveodk/vue-error-tracker/dist/@deveodk/vue-error-tracker.css"></link>
-<script src="@deveodk/vue-error-tracker/dist/@deveodk/vue-error-tracker.js"></script>
-
 <!-- From CDN -->
-<link rel="stylesheet" href="https://unpkg.com/@deveodk/vue-error-tracker/dist/@deveodk/vue-error-tracker.css"></link>
-<script src="https://unpkg.com/@deveodk/vue-error-tracker"></script>
+<script src="https://unpkg.com/@deveodk/vue-error-tracker/dist/@deveodk/vue-error-tracker.min.js"></script>
 ```
 
 ## Usage

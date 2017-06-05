@@ -1,6 +1,6 @@
 {
   "name": "@deveodk/vue-error-tracker",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Give your users an easy way to see when something in your application goes wrong. This package makes it easy to show error messages.",
   "author": "Jason Kelly <jk@deveo.dk>",
   "main": "dist/@deveodk/vue-error-tracker.common.js",
@@ -8,6 +8,15 @@
   "browser": "dist/@deveodk/vue-error-tracker.js",
   "unpkg": "dist/@deveodk/vue-error-tracker.js",
   "style": "dist/@deveodk/vue-error-tracker.css",
+  "keywords": [
+    "vuejs",
+    "vue",
+    "vue-component",
+    "component",
+    "deveodk",
+    "error",
+    "tracker"
+  ],
   "files": [
     "dist",
     "src",
@@ -120,12 +129,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deveodk/vue-error-tracker/@deveodk/vue-error-tracker.git"
+    "url": "git+https://github.com/deveodk/vue-error-tracker.git"
   },
   "bugs": {
-    "url": "https://github.com/deveodk/vue-error-tracker/@deveodk/vue-error-tracker/issues"
+    "url": "https://github.com/deveodk/vue-error-tracker/issues"
   },
-  "homepage": "https://github.com/deveodk/vue-error-tracker/@deveodk/vue-error-tracker#readme",
+  "homepage": "https://github.com/deveodk/vue-error-tracker#readme",
   "license": {
     "type": "MIT",
     "url": "http://www.opensource.org/licenses/mit-license.php"

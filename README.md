@@ -17,11 +17,8 @@ npm install --save @deveodk/vue-error-tracker
 
 ```js
 import Vue from 'vue'
-import @deveodk/vueErrorTracker from '@deveodk/vue-error-tracker'
-// You need a specific loader for CSS files like https://github.com/webpack/css-loader
-import '@deveodk/vue-error-tracker/dist/@deveodk/vue-error-tracker.css'
-
-Vue.use(@deveodk/vueErrorTracker)
+import vueErrorTracker from '@deveodk/vue-error-tracker'
+Vue.use(vueErrorTracker)
 ```
 
 ### Browser

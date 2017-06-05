@@ -1,6 +1,6 @@
 {
   "name": "@deveodk/vue-error-tracker",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Give your users an easy way to see when something in your application goes wrong. This package makes it easy to show error messages.",
   "author": "Jason Kelly <jk@deveo.dk>",
   "main": "dist/@deveodk/vue-error-tracker.common.js",

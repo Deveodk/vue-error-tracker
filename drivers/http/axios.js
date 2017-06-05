@@ -10,7 +10,7 @@ module.exports = {
             code(response)
             return response
         }, function (error) {
-            errorCb(error)
+            errorCb(error.response)
             // Do something with response error
             return error
         })

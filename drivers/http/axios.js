@@ -12,7 +12,7 @@ module.exports = {
         }, function (error) {
             errorCb(error.response)
             // Do something with response error
-            return error
+            return Promise.reject(error);
         })
     }
 }

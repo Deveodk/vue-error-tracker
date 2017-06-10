@@ -5,9 +5,14 @@ function plugin (Vue, options) {
     }
     options = utils.extend(defaultOptions, [options || {}])
     let notification = false
+    let report = false
     if (options.NotificationDriver) {
       options.NotificationDriver._init(Vue)
         notification = true
+    }
+    if (options.ReportDriver) {
+        options.ReportDriver._init(Vue)
+        report = true
     }
 
     if (options.HttpDriver) {
@@ -41,6 +46,9 @@ function plugin (Vue, options) {
                             options.NotificationDriver._notifyError(Vue, object.message, object.title)
                             break
                     }
+                }
+                if (report) {
+                    options.ReportDriver._report(Vue, response.status, response.statusText, response.data, object.type)
                 }
                 return
             }

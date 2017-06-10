@@ -48,6 +48,8 @@ import errorTracker from '@deveodk/vue-error-tracker'
 Vue.use(errorTracker, {
     HttpDriver: require('@deveodk/vue-error-tracker/drivers/http/axios.js'),
     NotificationDriver: require('@deveodk/vue-error-tracker/drivers/notification/deveoToastr.js'),
+   # Sentry.io optional
+   # ReportDriver: require('@deveodk/vue-error-tracker/drivers/report/sentry.js'),
     HttpErrorCodes: {
         400: {
             title: 'Unknown error',
@@ -61,6 +63,22 @@ Vue.use(errorTracker, {
         }
     }
 })
+```
+
+## Reporting errors
+You can report the errors through the error drivers. The error tracker comes with built in support for sentry.io
+
+```code
+# Sentry raven example
+import Raven from 'raven-js'
+import RavenVue from 'raven-js/plugins/vue'
+Raven
+    .config(KEY HERE)
+    .addPlugin(RavenVue, Vue)
+    .install()
+Vue.prototype.$raven = Raven
+
+# The error tracker will now automaticly report the errors to sentry
 ```
 
 ## License

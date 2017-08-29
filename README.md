@@ -1,13 +1,15 @@
-<img src="https://s3.eu-central-1.amazonaws.com/deveo-packages/packages/vue-error-tracker/banner.png" width="100%" />
-
+<img src="https://s3.eu-central-1.amazonaws.com/deveo-packages/packages/vue-error-tracker/package-banner.png" width="100%" />
 
 [![npm](https://img.shields.io/npm/v/@deveodk/vue-error-tracker.svg)](https://www.npmjs.com/package/@deveodk/vue-error-tracker) [![vue2](https://img.shields.io/badge/vue-2.x-brightgreen.svg)](https://vuejs.org/)
 
 > Give your users an easy way to see when something in your application goes wrong. This package makes it easy to show error messages.
+<br>
 
 # Demo
 See a functioning demo
 <a href="https://packages.deveo.io/packages/vue/vue-error-tracker">deveo demo site</a>
+
+<img src="https://s3.eu-central-1.amazonaws.com/deveo-packages/packages/vue-error-tracker/error-tracker-demo.gif" style="width:100%"/>
 
 
 ## Installation
@@ -38,16 +40,16 @@ However it is possible to write your own custom drivers
 
 The package is compatible with vue-resource and axios out of the box
 
-```code
-# You can notify on as many http status codes as your like, 
+```js
+// You can notify on as many http status codes as your like, 
 just include them in the HttpErrorCodes object
 
 import errorTracker from '@deveodk/vue-error-tracker'
 Vue.use(errorTracker, {
     HttpDriver: require('@deveodk/vue-error-tracker/drivers/http/axios.js'),
     NotificationDriver: require('@deveodk/vue-error-tracker/drivers/notification/deveoToastr.js'),
-   # Sentry.io optional
-   # ReportDriver: require('@deveodk/vue-error-tracker/drivers/report/sentry.js'),
+  // Sentry.io optional
+  // ReportDriver: require('@deveodk/vue-error-tracker/drivers/report/sentry.js'),
     HttpErrorCodes: {
         400: {
             title: 'Unknown error',
@@ -66,8 +68,8 @@ Vue.use(errorTracker, {
 ## Reporting errors
 You can report the errors through the error drivers. The error tracker comes with built in support for sentry.io
 
-```code
-# Sentry raven example
+```js
+// Sentry raven example
 import Raven from 'raven-js'
 import RavenVue from 'raven-js/plugins/vue'
 Raven
@@ -76,7 +78,7 @@ Raven
     .install()
 Vue.prototype.$raven = Raven
 
-# The error tracker will now automaticly report the errors to sentry
+// The error tracker will now automaticly report the errors to sentry
 ```
 
 ## License

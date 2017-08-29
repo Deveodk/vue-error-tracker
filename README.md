@@ -1,7 +1,5 @@
-# @deveodk/vue-error-tracker
+<img src="https://s3.eu-central-1.amazonaws.com/deveo-packages/packages/vue-error-tracker/banner.png" width="100%" />
 
-
-<img src="https://cloud.githubusercontent.com/assets/7561792/26696798/329afeb2-4710-11e7-8df0-43ad803237b7.png" width="100%" />
 
 [![npm](https://img.shields.io/npm/v/@deveodk/vue-error-tracker.svg)](https://www.npmjs.com/package/@deveodk/vue-error-tracker) [![vue2](https://img.shields.io/badge/vue-2.x-brightgreen.svg)](https://vuejs.org/)
 
@@ -85,4 +83,4 @@ Vue.prototype.$raven = Raven
 
 [MIT](http://opensource.org/licenses/MIT)
 
-<img src="https://cloud.githubusercontent.com/assets/7561792/26679305/bc4d7bda-46d4-11e7-9270-3f6cacdd0ae9.png" width="100%" />
+<img src="https://s3.eu-central-1.amazonaws.com/deveo-packages/packages/packages-by-deveo.png" width="100%" />
